@@ -1,10 +1,10 @@
 ﻿using System.Data;
-using smallworld.controladoras;
-using smallworld.interfaces.dieta;
-using smallworld.modelo.componentesForm;
-using smallworld.modelo.entidades;
-using smallworld.modelo.fabricas.dietas;
-using smallworld.modelo.interactuables;
+using smallworld.src.modelo.fabricas.dietas;
+using smallworld.src.controladoras;
+using smallworld.src.interfaces.dieta;
+using smallworld.src.modelo.componentesForm;
+using smallworld.src.modelo.entidades;
+using smallworld.src.modelo.interactuables;
 
 namespace smallworld.vistas
 {
@@ -19,7 +19,8 @@ namespace smallworld.vistas
         {
             InitializeComponent();
             this.entidad = entidad;
-            ComponentesForm.CargarComboBox(ControlEntidad.GetDietas(), cbbTipoDieta);
+            ComponentesForm.CargarComboBox(ControlEntidad.DIETAS, cbbTipoDieta);
+
 
         }
 
@@ -32,8 +33,8 @@ namespace smallworld.vistas
                 );
             MessageBox.Show("Se creo correctamente");
 
-            lblAlimento.Text = $" Habitats: {string.Join("-", ControlComida.GetListComida().Select(h => h.ToString()))}";
-            ComponentesForm.CargarComboBox(ControlComida.GetListComida(), cbbComidas);
+            lblAlimento.Text = $" Habitats: {string.Join("-", ControlComida.COMIDAS.Select(h => h.ToString()))}";
+            ComponentesForm.CargarComboBox(ControlComida.COMIDAS, cbbComidas);
         }
 
         private void btnComer_Click(object sender, EventArgs e)

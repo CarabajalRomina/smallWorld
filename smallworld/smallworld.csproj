@@ -9,6 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Properties\DataSources\" />
+    <Folder Include="vistas\admin\interactuables\" />
     <Folder Include="vistas\messageBox\" />
   </ItemGroup>
 

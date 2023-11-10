@@ -1,14 +1,11 @@
-﻿using smallworld.controladoras;
-using smallworld.interfaces.dieta;
-using smallworld.interfaces.habitat;
-using smallworld.interfaces.reino;
-using smallworld.modelo.componentesForm;
-using smallworld.modelo.entidades;
+﻿using smallworld.src.controladoras;
+using smallworld.src.interfaces.dieta;
+using smallworld.src.interfaces.habitat;
+using smallworld.src.interfaces.reino;
+using smallworld.src.modelo.componentesForm;
+using smallworld.src.modelo.entidades;
 using smallworld.vistas.admin;
-using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+
 
 namespace smallworld.vistas
 {
@@ -25,9 +22,9 @@ namespace smallworld.vistas
 
         private void CargarComboBoxsYcheckList()
         {
-            ComponentesForm.CargarComboBox(ControlEntidad.GetDietas(), cbbDieta);
-            ComponentesForm.CargarComboBox(ControlEntidad.GetReinos(), cbbReino);
-            ComponentesForm.CargarCheckList(ControlEntidad.GetHabitats(), checkListHabitat);
+            ComponentesForm.CargarComboBox(ControlEntidad.DIETAS, cbbDieta);
+            ComponentesForm.CargarComboBox(ControlEntidad.REINOS, cbbReino);
+           // ComponentesForm.CargarCheckList(ControlEntidad.GetHabitats(), checkListHabitat);
         }
 
 
@@ -36,11 +33,11 @@ namespace smallworld.vistas
 
         private void btnCrear_Click(object sender, EventArgs e)
         {
-            ControlEntidad.CrearEntidad(
+           /* ControlEntidad.CrearEntidad(
                 (txtNombre.Text).Substring(0, 1).ToUpper() + (txtNombre.Text).Substring(1).ToLower(),
                 (IReino)cbbReino.SelectedItem,
                 (IDieta)cbbDieta.SelectedItem,
-                ObtenerHabitatsSeleccionadosCheckList(),
+                //ObtenerHabitatsSeleccionadosCheckList(),
                 Convert.ToInt32(spnEnergiaMax.Value),
                 Convert.ToInt32(spnVidaMax.Value),
                 Convert.ToInt32(spnPuntosAtaque.Value),
@@ -48,7 +45,7 @@ namespace smallworld.vistas
                 Convert.ToInt32(spnRangoAtaque.Value)
                 );
             ComponentesForm.CargarComboBox(ControlEntidad.GetEntidades(), cbbEntidad);
-            VaciarForm();
+            VaciarForm();*/
 
         }
 
@@ -61,7 +58,7 @@ namespace smallworld.vistas
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            ControlEntidad.EditarEntidad(
+           /* ControlEntidad.EditarEntidad(
                 Convert.ToInt32(txtId.Text),
                 (txtNombre.Text).Substring(0, 1).ToUpper() + (txtNombre.Text).Substring(1).ToLower(),
                 (IReino)cbbReino.SelectedItem,
@@ -73,12 +70,12 @@ namespace smallworld.vistas
                 Convert.ToInt32(spnPuntosDefensa.Value),
                 Convert.ToInt32(spnRangoAtaque.Value)
                 );
-            VaciarForm();
+            VaciarForm();*/
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
         {
-            foreach (var entidad in ControlEntidad.GetEntidades())
+            foreach (var entidad in ControlEntidad.ENTIDADES)
             {
                 Console.WriteLine(entidad);
                 Console.WriteLine("");
@@ -86,7 +83,7 @@ namespace smallworld.vistas
             ControlEntidad.EliminarEntidad(((Entidad)cbbEntidad.SelectedItem).ID);
             Console.WriteLine("Despues de eliminar");
             Console.WriteLine("");
-            foreach (var entidad in ControlEntidad.GetEntidades())
+            foreach (var entidad in ControlEntidad.ENTIDADES)
             {
                 Console.WriteLine(entidad);
                 Console.WriteLine("");
@@ -138,7 +135,7 @@ namespace smallworld.vistas
 
         private void marcarCheckListSeleccionados(Entidad entidad)
         {
-            foreach (var habitat in entidad.HABITATS)
+           /* foreach (var habitat in entidad.HABITATS)
             {
                 for (int i = 0; i < checkListHabitat.Items.Count; i++)
                 {
@@ -148,7 +145,7 @@ namespace smallworld.vistas
                         break; // Opcionalmente, puedes usar break si solo quieres encontrar la primera coincidencia.
                     }
                 }
-            }
+            }*/
         }
 
         private void VaciarForm()
@@ -167,7 +164,7 @@ namespace smallworld.vistas
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FormCrudEntidad form = new FormCrudEntidad();
+            FormCRUDEntidad form = new FormCRUDEntidad();
             form.ShowDialog();
         }
     }

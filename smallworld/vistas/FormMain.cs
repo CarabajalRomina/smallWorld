@@ -1,4 +1,5 @@
 ﻿using smallworld.vistas.admin;
+using smallworld.vistas.admin.interactuables;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,14 +36,35 @@ namespace smallworld.vistas
 
         private void btnAdmin_Click(object sender, EventArgs e)
         {
-            FormCrudEntidad formCrudEntidad = new FormCrudEntidad();
-            formCrudEntidad.ShowDialog();
+            /* FormCrudEntidad form = new FormCrudEntidad();
+             form.ShowDialog();*/
+            FormPrincipal form = new FormPrincipal();
+            form.ShowDialog();
         }
 
         private void btnJugar_Click(object sender, EventArgs e)
         {
-            var entView = new EntidadView();
-            entView.ShowDialog();
+
+        }
+
+        private void btnItems_Click(object sender, EventArgs e)
+        {
+            FormCRUDItems formCRUDItems = new FormCRUDItems();
+            formCRUDItems.ShowDialog();
+        }
+
+        private void btnComida_Click(object sender, EventArgs e)
+        {
+            /*FormCRUDComida FormComida = new FormCRUDComida();
+            FormComida.ShowDialog();*/
+            FormCRUDEntidad form = new FormCRUDEntidad();
+            form.ShowDialog();
+
+        }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

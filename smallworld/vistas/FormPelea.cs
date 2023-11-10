@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-using smallworld.controladoras;
-using smallworld.interfaces.dieta;
-using smallworld.modelo.entidades;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+﻿using System.Data;
+using smallworld.src.controladoras;
+using smallworld.src.modelo.entidades;
 
 namespace smallworld.vistas
 {
@@ -20,7 +10,7 @@ namespace smallworld.vistas
         public FormPelea()
         {
             InitializeComponent();
-            CargarComboBoxEntidad(ControlEntidad.GetEntidades());
+            CargarComboBoxEntidad(ControlEntidad.ENTIDADES);
         }
 
 
@@ -41,7 +31,7 @@ namespace smallworld.vistas
 
             cbbEntidad2.Items.Clear();
 
-            foreach (var entidad in ControlEntidad.GetEntidades().Where(p => p.NOMBRE != personajeSeleccionado))
+            foreach (var entidad in ControlEntidad.ENTIDADES.Where(p => p.NOMBRE != personajeSeleccionado))
             {
                 cbbEntidad2.Items.Add(entidad);
             }
